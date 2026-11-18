@@ -90,7 +90,7 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.3.7")
 
     // SMB 2/3 client (NTLM, guest) + DCE/RPC for share enumeration (srvsvc)
-    implementation("com.hierynomus:smbj:0.14.0")
+    implementation("com.hierynomus:smbj:0.15.0")
     implementation("com.rapid7.client:dcerpc:0.12.13")
 
     testImplementation("junit:junit:4.13.2")
