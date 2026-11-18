@@ -1,0 +1,27 @@
+# Used by .github/workflows/release.yml to publish a signed AAB to Google Play.
+#
+# Environment:
+#   PLAY_SERVICE_ACCOUNT_JSON  service-account key with release permission for the app
+#   AAB_PATH                   the signed app bundle
+#   PLAY_METADATA_PATH         directory holding <lang>/changelogs/<versionCode>.txt
+#   PLAY_TRACK                 defaults to "production"
+
+default_platform(:android)
+
+platform :android do
+  desc "Upload the AAB to Google Play and roll it out to 100%"
+  lane :play do
+    upload_to_play_store(
+      package_name: "app.copyphotos",
+      json_key_data: ENV.fetch("PLAY_SERVICE_ACCOUNT_JSON"),
+      aab: ENV.fetch("AAB_PATH"),
+      track: ENV.fetch("PLAY_TRACK", "production"),
+      release_status: "completed",
+      metadata_path: ENV.fetch("PLAY_METADATA_PATH"),
+      skip_upload_apk: true,
+      skip_upload_metadata: true, # store listing text stays as set in the console
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+end

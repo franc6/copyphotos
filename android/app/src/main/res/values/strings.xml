@@ -1,0 +1,234 @@
+<resources>
+    <string name="app_name">CopyPhotos</string>
+
+    <!-- Shared -->
+    <string name="list_separator">" · "</string>
+    <!-- Between the parts of a place name, e.g. "Paris, France". -->
+    <string name="place_separator">", "</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_done">Done</string>
+    <string name="action_ok">OK</string>
+    <string name="action_open">Open</string>
+    <string name="action_create">Create</string>
+    <string name="action_select">Select</string>
+    <string name="action_more">More</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="action_back">Back</string>
+    <string name="tab_photos">Photos</string>
+    <string name="tab_destination">Destination</string>
+
+    <!-- Copy notification (worker) -->
+    <string name="notification_channel">Copying photos</string>
+    <string name="notification_copying">Copying photos (%1$d of %2$d)</string>
+    <string name="notification_connecting">Connecting…</string>
+
+    <!-- Destination screen -->
+    <string name="destination_title">Destination</string>
+    <string name="section_smb_server">SMB server</string>
+    <string name="field_host">Host name or IP address</string>
+    <string name="field_port">Port (default 445)</string>
+    <string name="section_authentication">Authentication</string>
+    <string name="field_username">Username</string>
+    <string name="field_password">Password</string>
+    <string name="field_password_saved">Password saved (type to replace)</string>
+    <string name="field_domain">Domain / workgroup (optional)</string>
+    <string name="error_password_not_saved">The password couldn\'t be saved with the Android Keystore.</string>
+    <string name="hint_password">Signing in with a password uses SMB 3 with NTLMv2, and files are encrypted on the way. The password is encrypted with an Android Keystore key on this device.</string>
+    <string name="section_location">Location</string>
+    <string name="location_choose">Choose a folder…</string>
+    <string name="location_needs_server">Enter the server and sign-in first</string>
+    <string name="manual_entry_show">Enter manually</string>
+    <string name="manual_entry_hide">Hide manual entry</string>
+    <string name="field_share">Share name</string>
+    <string name="field_folder">Folder in the share (e.g. Photos/Phone)</string>
+    <string name="hint_location">Photos are copied straight into this folder, with no subfolders. It is created if it does not exist.</string>
+    <string name="section_copying">Copying</string>
+    <string name="verify_each_copy">Verify each copy</string>
+    <string name="verify_read_back">Read back &amp; compare SHA-256</string>
+    <string name="verify_size_only">Compare file size</string>
+    <string name="section_automation">Automation</string>
+    <string name="switch_auto_copy">Automatically copy new photos</string>
+    <string name="switch_wifi_only">Only on Wi-Fi / unmetered</string>
+    <string name="switch_charging">Only while charging</string>
+    <string name="hint_automation">New photos are copied when they appear, hourly in the background, and when the app opens. Photos already copied are never copied again automatically.</string>
+    <string name="action_test_connection">Test connection</string>
+    <string name="probe_succeeded">Connected and verified write access to %1$s</string>
+    <string name="smb_auth_user_password">Username &amp; password (NTLMv2)</string>
+    <string name="smb_auth_guest">Guest (not encrypted)</string>
+    <string name="smb_auth_anonymous">Anonymous (not encrypted)</string>
+
+    <!-- Location browser -->
+    <string name="browser_up">Up one level</string>
+    <string name="browser_new_folder">New folder</string>
+    <string name="browser_new_folder_title">New folder in “%1$s”</string>
+    <string name="field_name">Name</string>
+    <string name="browser_missing">This folder does not exist yet. It is created when the first photo is copied, or use New folder in the folder above it.</string>
+    <string name="browser_no_shares">The server did not list any shares.</string>
+    <string name="browser_open_by_name">Open a share by name…</string>
+    <string name="browser_open_share_title">Open share</string>
+    <string name="browser_empty">Empty folder</string>
+    <string name="browser_choose">Choose “%1$s”</string>
+    <string name="browser_select_share">Select a share</string>
+
+    <!-- Photos screen -->
+    <string name="photos_access_needed">CopyPhotos needs access to your photos to copy them to your network share.</string>
+    <string name="photos_notifications_note">Android will also ask about notifications. They are used only to show copy progress while a copy runs in the background; there are no other notifications. Copying works the same if you don\'t allow them.</string>
+    <string name="action_allow_access">Allow access</string>
+    <plurals name="photos_selected">
+        <item quantity="one">%d selected</item>
+        <item quantity="other">%d selected</item>
+    </plurals>
+    <string name="select_none">None</string>
+    <string name="select_all">All</string>
+    <string name="menu_copy_all_again">Copy all again…</string>
+    <string name="menu_delete_copied">Delete copied photos from device…</string>
+    <string name="menu_forget_history">Forget copy history…</string>
+    <string name="no_destination">No destination configured</string>
+    <plurals name="photos_on_device">
+        <item quantity="one">%d on device</item>
+        <item quantity="other">%d on device</item>
+    </plurals>
+    <plurals name="photos_copied">
+        <item quantity="one">%d copied</item>
+        <item quantity="other">%d copied</item>
+    </plurals>
+    <plurals name="photos_not_copied">
+        <item quantity="one">%d not yet copied</item>
+        <item quantity="other">%d not yet copied</item>
+    </plurals>
+    <string name="photos_limited_access">Limited access: only photos you selected are visible. Allow all photos to copy everything.</string>
+    <string name="filter_all">All</string>
+    <string name="filter_not_copied">Not copied</string>
+    <string name="filter_copied">Copied</string>
+    <string name="cd_copied">Copied</string>
+    <string name="cd_video">Video</string>
+    <plurals name="copy_selected">
+        <item quantity="one">Copy %d selected</item>
+        <item quantity="other">Copy %d selected</item>
+    </plurals>
+    <plurals name="copy_new">
+        <item quantity="one">Copy %d new</item>
+        <item quantity="other">Copy %d new</item>
+    </plurals>
+
+    <!-- Copy progress and result banner -->
+    <string name="run_waiting">Waiting to start (needs network)…</string>
+    <string name="run_starting">Starting…</string>
+    <string name="run_copying">Copying %1$d of %2$d</string>
+    <plurals name="run_failed">
+        <item quantity="one">%d failed</item>
+        <item quantity="other">%d failed</item>
+    </plurals>
+    <string name="banner_complete">Copy complete</string>
+    <string name="banner_with_errors">Copy finished with errors</string>
+    <string name="banner_stopped">Copy stopped</string>
+    <string name="banner_stopped_detail">Copied photos so far are recorded.</string>
+    <string name="banner_nothing_new">Nothing new to copy</string>
+    <string name="banner_nothing_new_detail">Every photo on this device has already been copied.</string>
+    <string name="banner_connect_failed">Could not connect</string>
+    <plurals name="banner_copied">
+        <item quantity="one">%d copied and verified</item>
+        <item quantity="other">%d copied and verified</item>
+    </plurals>
+    <plurals name="banner_already_present">
+        <item quantity="one">%d already on destination</item>
+        <item quantity="other">%d already on destination</item>
+    </plurals>
+    <plurals name="banner_failed">
+        <item quantity="one">%d failed</item>
+        <item quantity="other">%d failed</item>
+    </plurals>
+    <string name="banner_show_errors">Show errors</string>
+    <string name="errors_title">Errors</string>
+    <string name="failure_line">%1$s: %2$s</string>
+
+    <!-- Confirmations -->
+    <string name="confirm_copy_again_title">Copy again?</string>
+    <plurals name="confirm_copy_again_button">
+        <item quantity="one">Copy %d</item>
+        <item quantity="other">Copy %d</item>
+    </plurals>
+    <plurals name="confirm_copy_again_text">
+        <item quantity="one">%d of the selected photos was already copied. It will be copied again.</item>
+        <item quantity="other">%d of the selected photos were already copied. They will be copied again.</item>
+    </plurals>
+    <string name="confirm_copy_all_title">Copy every photo again?</string>
+    <string name="action_copy_all">Copy all</string>
+    <plurals name="confirm_copy_all_text">
+        <item quantity="one">%d photo will be copied. Files already on the destination with the same size and contents are not copied again; if a different file has the name, the copy gets a numbered name.</item>
+        <item quantity="other">All %d photos will be copied. Files already on the destination with the same size and contents are not copied again; if a different file has the name, the copy gets a numbered name.</item>
+    </plurals>
+    <string name="confirm_forget_title">Forget copy history?</string>
+    <string name="action_forget">Forget</string>
+    <string name="confirm_forget_text">All photos will be treated as not copied, so automatic copying will copy them again. Nothing is deleted.</string>
+
+    <!-- Delete copied photos -->
+    <string name="delete_title">Delete copied photos</string>
+    <plurals name="delete_copied_count">
+        <item quantity="one">%d photo or video on this device has been copied.</item>
+        <item quantity="other">%d photos and videos on this device have been copied.</item>
+    </plurals>
+    <string name="delete_explanation">All of them are deleted from this device. The destination is not checked or changed. Android asks you to confirm.</string>
+    <plurals name="delete_button">
+        <item quantity="one">Delete %d from device</item>
+        <item quantity="other">Delete %d from device</item>
+    </plurals>
+    <plurals name="delete_deleted">
+        <item quantity="one">Deleted %d photo or video from this device.</item>
+        <item quantity="other">Deleted %d photos and videos from this device.</item>
+    </plurals>
+    <plurals name="delete_trashed">
+        <item quantity="one">Moved %d photo or video to the device trash.</item>
+        <item quantity="other">Moved %d photos and videos to the device trash.</item>
+    </plurals>
+
+    <!-- Photo viewer and Details -->
+    <string name="action_details">Details</string>
+    <string name="details_title">Details</string>
+    <string name="details_dimensions">%1$d × %2$d</string>
+    <string name="details_flash">Flash</string>
+    <string name="details_camera">Camera</string>
+    <string name="details_focal_35">%1$d mm (35 mm equivalent)</string>
+    <string name="details_altitude">%1$d m</string>
+    <string name="details_location">Location</string>
+    <string name="details_no_location">No location information</string>
+    <string name="details_location_permission">Allow CopyPhotos to access your photos\' locations in Settings to see it.</string>
+    <string name="details_on_device">On device</string>
+    <string name="details_copied">Copied and verified</string>
+    <string name="details_not_copied">Not copied yet</string>
+
+    <!-- Camera metadata units (numbers are formatted for the locale before they go in) -->
+    <string name="metadata_shutter_fraction">1/%1$d</string>
+    <string name="metadata_shutter_seconds">%1$ss</string>
+    <string name="metadata_f_number">ƒ/%1$s</string>
+    <string name="metadata_iso">ISO %1$d</string>
+    <string name="metadata_exposure_bias">%1$s EV</string>
+    <string name="metadata_megapixels">%1$s MP</string>
+    <string name="metadata_8k">8K</string>
+    <string name="metadata_4k">4K</string>
+    <string name="metadata_lines">%1$dp</string>
+    <string name="metadata_frame_rate">%1$s fps</string>
+    <string name="metadata_coordinate">%1$s, %2$s</string>
+
+    <!-- Failure reasons -->
+    <string name="error_size_mismatch">Verification failed: size mismatch (local %1$d, remote %2$d)</string>
+    <string name="error_size_missing">Verification failed: the file is missing at the destination</string>
+    <string name="error_checksum">Verification failed: checksum mismatch</string>
+    <string name="error_wrong_size_after_move">Verification failed: %1$s has the wrong size after moving it into place</string>
+    <string name="error_name_conflicts">Too many files named like %1$s at the destination</string>
+    <string name="error_item_missing">The photo is no longer on the device.</string>
+    <string name="error_not_found">Not found on the server.</string>
+    <string name="error_incomplete">The destination is not fully configured.</string>
+    <string name="error_invalid_host">The server address is not valid.</string>
+    <string name="error_sign_in">%1$s refused the sign-in. Check the user name and password.</string>
+    <string name="error_sign_in_share">%1$s refused the sign-in or the share “%2$s”. Check the user name, password and share name.</string>
+    <string name="error_connection_refused">%1$s refused the connection or the sign-in. Check that SMB is enabled on port 445 and that the user name and password are correct.</string>
+    <string name="error_access_denied">Access denied by %1$s. Check that this user may use it.</string>
+    <string name="error_access_denied_share">Access denied by %1$s or the share “%2$s”. Check that this user may use it.</string>
+    <string name="error_share_missing">The share “%2$s” does not exist on %1$s.</string>
+    <string name="error_not_disk_share">“%2$s” on %1$s is not a disk share.</string>
+    <string name="error_timed_out">%1$s did not respond in time.</string>
+    <string name="error_unreachable">Cannot reach %1$s from this device\'s network.</string>
+    <string name="error_other">Could not connect to %1$s (error %2$d).</string>
+</resources>

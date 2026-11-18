@@ -1,0 +1,71 @@
+name: Play refresh
+
+# Google Play withdraws apps that aren't updated often enough. Once a week this
+# checks the newest release tag; if it is older than MAX_AGE_DAYS, it tags the
+# next patch version on the *same commit* (so nothing unreleased ships) and
+# dispatches the Release workflow for Google Play only.
+
+on:
+  schedule:
+    - cron: "23 14 * * 1" # Mondays, 14:23 UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Release now, regardless of the last release's age
+        type: boolean
+        default: false
+
+env:
+  MAX_AGE_DAYS: ${{ vars.PLAY_MAX_AGE_DAYS || '30' }}
+
+permissions:
+  contents: write # push the tag
+  actions: write # dispatch release.yml
+
+concurrency:
+  group: play-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # all tags
+
+      - name: Tag and dispatch if the last release is too old
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FORCE: ${{ inputs.force || false }}
+        run: |
+          PLAIN='^v?[0-9]+(\.[0-9]+){0,2}$'
+          NEWEST_BY_DATE=$(git tag -l --sort=-creatordate | grep -E "$PLAIN" | head -1 || true)
+          HIGHEST=$(git tag -l --sort=-v:refname | grep -E "$PLAIN" | head -1 || true)
+          if [ -z "$HIGHEST" ]; then
+            echo "::notice::No release tags yet. Make the first release by hand."
+            exit 0
+          fi
+
+          TAGGED_AT=$(git for-each-ref --format='%(creatordate:unix)' "refs/tags/$NEWEST_BY_DATE")
+          AGE_DAYS=$(( ( $(date +%s) - TAGGED_AT ) / 86400 ))
+          echo "Newest release: $NEWEST_BY_DATE, $AGE_DAYS days old (limit $MAX_AGE_DAYS)."
+          if [ "$FORCE" != "true" ] && [ "$AGE_DAYS" -lt "$MAX_AGE_DAYS" ]; then
+            echo "Recent enough; nothing to do."
+            exit 0
+          fi
+
+          # Next patch after the highest version: v1.2 -> v1.2.1, v1.2.3 -> v1.2.4.
+          PREFIX=""; case "$HIGHEST" in v*) PREFIX=v ;; esac
+          IFS=. read -r MAJOR MINOR PATCH <<< "${HIGHEST#v}"
+          NEXT="$PREFIX${MAJOR}.${MINOR:-0}.$(( ${PATCH:-0} + 1 ))"
+          COMMIT=$(git rev-list -n 1 "$HIGHEST")
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$NEXT" "$COMMIT" -m "Maintenance update."
+          git push origin "refs/tags/$NEXT"
+
+          # Tags pushed with GITHUB_TOKEN don't trigger workflows; dispatch does.
+          gh workflow run release.yml --ref "$NEXT" -f play=true -f app_store=false
+          echo "::notice::Tagged $NEXT on $COMMIT ($HIGHEST) and started the Release workflow (Google Play only)."

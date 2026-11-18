@@ -1,0 +1,79 @@
+name: Update Xcode packages
+
+# Dependabot covers GitHub Actions, Gradle and Bundler (.github/dependabot.yml)
+# but not Swift packages added through the Xcode project. This bumps those
+# (currently AMSMB2) to the newest release that is at least 14 days old and
+# opens or updates a single PR on the deps/xcode-packages branch.
+#
+# Requires: Settings → Actions → General → "Allow GitHub Actions to create and
+# approve pull requests".
+
+on:
+  schedule:
+    - cron: "41 13 * * 1" # Mondays, 13:41 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write # push the branch
+  pull-requests: write # open the PR
+  actions: write # start iOS CI on the branch
+
+concurrency:
+  group: update-xcode-packages
+  cancel-in-progress: false
+
+env:
+  BRANCH: deps/xcode-packages
+  PROJECT: ios/CopyPhotos.xcodeproj
+
+jobs:
+  update:
+    runs-on: xcode-27
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bump package versions
+        id: bump
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          CHANGES="$(python3 .github/scripts/update_xcode_packages.py "$PROJECT/project.pbxproj")"
+          if [ -z "$CHANGES" ]; then
+            echo "Everything is up to date."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "$CHANGES"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          { echo "changes<<PACKAGE_CHANGES_END"; echo "$CHANGES"; echo "PACKAGE_CHANGES_END"; } >> "$GITHUB_OUTPUT"
+
+      - name: Regenerate Package.resolved
+        if: steps.bump.outputs.changed == 'true'
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project "$PROJECT" -scheme CopyPhotos \
+            -clonedSourcePackagesDirPath "$RUNNER_TEMP/spm"
+
+      - name: Open or update the PR
+        if: steps.bump.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHANGES: ${{ steps.bump.outputs.changes }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$BRANCH"
+          git add "$PROJECT"
+          git commit -m "Update Xcode Swift packages" -m "$CHANGES"
+          git push --force origin "$BRANCH"
+
+          BODY="$(printf 'Updates Swift packages referenced by the Xcode project:\n\n```\n%s\n```\n\nOpened by the Update Xcode packages workflow. iOS CI was started on this branch; its checks appear below.' "$CHANGES")"
+          if [ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]; then
+            gh pr create --head "$BRANCH" --base "${{ github.event.repository.default_branch }}" \
+              --title "Update Xcode Swift packages" --body "$BODY"
+          else
+            gh pr edit "$BRANCH" --body "$BODY"
+          fi
+
+          # Pushes made with GITHUB_TOKEN don't trigger CI; dispatch it instead.
+          gh workflow run ios.yml --ref "$BRANCH"

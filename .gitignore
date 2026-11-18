@@ -1,0 +1,22 @@
+.DS_Store
+.pytest_cache/
+# iOS
+ios/**/xcuserdata/
+ios/**/DerivedData/
+ios/CopyCore/.build/
+ios/CopyCore/.swiftpm/
+ios/.spm/
+*.xcuserstate
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/.kotlin/
+*.iml
+ios/build/
+ios/fastlane/report.xml
+ios/fastlane/README.md
+android/fastlane/report.xml
+android/fastlane/README.md

@@ -1,0 +1,384 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ actual": {
+      "comment": "Focal length of the lens, after the 35 mm equivalent"
+    },
+    "%@ did not respond in time.": {},
+    "%@ ev": {
+      "comment": "Exposure compensation"
+    },
+    "%@ fps": {
+      "comment": "Video frame rate"
+    },
+    "%@ MP": {
+      "comment": "Megapixels"
+    },
+    "%@ refused the connection or the sign-in. Check that SMB is enabled on port 445 and that the user name and password are correct.": {},
+    "%@ refused the sign-in or the share “%@”. Check the user name, password and share name.": {},
+    "%@ refused the sign-in. Check the user name and password.": {},
+    "%@ s": {
+      "comment": "Shutter speed in seconds"
+    },
+    "%@, %@": {
+      "comment": "Latitude, longitude"
+    },
+    "%@: %@": {
+      "comment": "A file that failed to copy, and why"
+    },
+    "%lld already on destination": {},
+    "%lld copied": {},
+    "%lld copied and verified": {},
+    "%lld failed": {},
+    "%lld m": {
+      "comment": "Altitude in metres"
+    },
+    "%lld not yet copied": {},
+    "%lld of the selected photos were already copied. They will be copied again.": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld of the selected photos was already copied. It will be copied again."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld of the selected photos were already copied. They will be copied again."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld on device": {},
+    "%lld photos and videos on this device have been copied.": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld photo or video on this device has been copied."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "%lld photos and videos on this device have been copied."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld × %lld": {
+      "comment": "Pixel dimensions"
+    },
+    "%lldp": {
+      "comment": "Video resolution, e.g. 1080p"
+    },
+    "%lld°%@′%@″ %@": {
+      "comment": "One coordinate: degrees, minutes, seconds, then the hemisphere letter"
+    },
+    "1/%lld s": {
+      "comment": "Shutter speed as a fraction of a second"
+    },
+    "4K": {
+      "comment": "Video resolution"
+    },
+    "8K": {
+      "comment": "Video resolution"
+    },
+    "Access denied by %@ or the share “%@”. Check that this user may use it.": {},
+    "Access denied by %@. Check that this user may use it.": {},
+    "All": {},
+    "All of them are deleted from this device. The destination is not checked or changed. iOS asks you to confirm and keeps deleted items in “Recently Deleted” for 30 days.": {},
+    "All photos will be treated as not copied, so automatic copying will copy them again. Nothing is deleted.": {},
+    "Allow access": {},
+    "Allow full photo library access in Settings so CopyPhotos can copy and, if you ask, delete photos.": {},
+    "Another copy is already in progress.": {},
+    "Authentication": {},
+    "Automatically copy new photos": {},
+    "Automation": {},
+    "Back": {},
+    "Burst": {},
+    "Camera details are in iCloud. Download": {},
+    "Cancel": {},
+    "Cannot reach %@ from this device’s network.": {},
+    "Choose a folder…": {},
+    "Choose “%@”": {},
+    "Cinematic": {},
+    "Close": {},
+    "Compare file size": {},
+    "Connected and verified write access to %@": {},
+    "Connecting to %@…": {},
+    "Coordinate.East": {
+      "comment": "East",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "E"
+          }
+        }
+      }
+    },
+    "Coordinate.North": {
+      "comment": "North",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "N"
+          }
+        }
+      }
+    },
+    "Coordinate.South": {
+      "comment": "South",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "S"
+          }
+        }
+      }
+    },
+    "Coordinate.West": {
+      "comment": "West",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "W"
+          }
+        }
+      }
+    },
+    "Copied": {},
+    "Copied %@": {},
+    "Copied and verified": {},
+    "Copied photos so far are recorded.": {},
+    "Copy %lld new": {},
+    "Copy %lld photos": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Copy %lld photo"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Copy %lld photos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Copy %lld selected": {},
+    "Copy again?": {},
+    "Copy all %lld photos": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Copy %lld photo"
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Copy all %lld photos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Copy all again…": {},
+    "Copy complete": {},
+    "Copy every photo again?": {},
+    "Copy finished with errors": {},
+    "Copy stopped": {},
+    "Copying": {},
+    "Copying %lld of %lld": {},
+    "CopyPhotos": {},
+    "CopyPhotos needs access to your photo library to copy photos to your network share.": {},
+    "Could not connect": {},
+    "Could not connect to %@ (error %lld).": {},
+    "Could not export the edited version.": {},
+    "Could not export the edited version: %@": {},
+    "Create": {},
+    "Delete %lld from this device": {},
+    "Delete copied photos": {},
+    "Delete copied photos from device…": {},
+    "Deleted %lld items from this device.": {
+      "localizations": {
+        "en": {
+          "variations": {
+            "plural": {
+              "one": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Deleted %lld item from this device."
+                }
+              },
+              "other": {
+                "stringUnit": {
+                  "state": "translated",
+                  "value": "Deleted %lld items from this device."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Deleting…": {},
+    "Destination": {},
+    "Domain / workgroup (optional)": {},
+    "Done": {},
+    "Downloading from iCloud…": {},
+    "Edited": {},
+    "Edited Live Photo video": {},
+    "Edited photo": {},
+    "Edited video": {},
+    "Edits (.AAE)": {},
+    "Empty folder": {},
+    "Enter manually": {},
+    "Enter the server and sign-in first": {},
+    "Errors": {},
+    "Every photo on this device has already been copied.": {},
+    "Favorite": {},
+    "Files already on the destination with the same size and contents are not copied again. If a different file has the name, the copy gets a numbered name.": {},
+    "Filter": {},
+    "Flash": {},
+    "Folder in the share (e.g. Photos/iPhone)": {},
+    "Forget copy history?": {},
+    "Forget copy history…": {},
+    "Forget history": {},
+    "Guest / anonymous (not encrypted)": {},
+    "HDR": {},
+    "Hidden": {},
+    "Info": {},
+    "ISO %lld": {
+      "comment": "Sensor sensitivity"
+    },
+    "Limited access: only photos you selected are visible. Grant full access in Settings to copy everything.": {},
+    "ListSeparator": {
+      "comment": "Between the parts of a one-line summary, e.g. “3 copied · 1 failed”",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " · "
+          }
+        }
+      }
+    },
+    "Live Photo": {},
+    "Live Photo video": {},
+    "Location": {},
+    "Name": {},
+    "New Folder": {},
+    "New folder in “%@”": {},
+    "New photos are copied when the app opens, when the library changes, and periodically in the background when iOS allows. Photos that were already copied are never copied again automatically.": {},
+    "No camera information": {},
+    "No date": {},
+    "No location information": {},
+    "No photo access": {},
+    "Not copied": {},
+    "Not copied yet": {},
+    "Not found on the server.": {},
+    "Nothing new to copy": {},
+    "Only while charging (background)": {},
+    "Open": {},
+    "Open a share by name…": {},
+    "Open share": {},
+    "Opens in Maps": {},
+    "Original": {},
+    "Panorama": {},
+    "Password": {},
+    "Password saved (type to replace)": {},
+    "Photo": {},
+    "Photos": {},
+    "Photos are copied straight into this folder, with no subfolders. It is created if it does not exist.": {},
+    "PlaceSeparator": {
+      "comment": "Between the parts of a place name, e.g. “Cupertino, California”",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", "
+          }
+        }
+      }
+    },
+    "Port (default 445)": {},
+    "Portrait": {},
+    "RAW original": {},
+    "Read back & compare SHA-256": {},
+    "Screen Recording": {},
+    "Screenshot": {},
+    "Select": {},
+    "Select a share": {},
+    "Select all": {},
+    "Select none": {},
+    "Share name": {},
+    "Show errors": {},
+    "Show Info": {},
+    "Sign in with": {},
+    "Slo-mo": {},
+    "Signing in with a password uses SMB 3 with NTLMv2, and files are encrypted on the way. Your password is stored in the iOS Keychain on this device.": {},
+    "SMB server": {},
+    "Spatial": {},
+    "Stop": {},
+    "Taken in %@": {},
+    "Test connection": {},
+    "The destination is not fully configured.": {},
+    "The password couldn't be saved in the Keychain.": {},
+    "The photo has no exportable data.": {},
+    "The photo is no longer in the library.": {},
+    "The server address is not valid.": {},
+    "The server did not list any shares.": {},
+    "The share “%@” does not exist on %@.": {},
+    "These %lld files will be copied:": {},
+    "This file will be copied:": {},
+    "This folder does not exist yet. It is created when the first photo is copied, or tap New Folder in the folder above it.": {},
+    "Time-lapse": {},
+    "Too many files named like %@ at the destination": {},
+    "Use this for shares the server does not list.": {},
+    "Username": {},
+    "Username & password (NTLMv2)": {},
+    "Verification failed: %@ has the wrong size after moving it into place": {},
+    "Verification failed: checksum mismatch": {},
+    "Verification failed: size mismatch (local %llu, remote %llu)": {},
+    "Verification failed: the file is missing at the destination": {},
+    "Verify each copy": {},
+    "ƒ%@": {
+      "comment": "Aperture"
+    },
+    "“%@” on %@ is not a disk share.": {}
+  },
+  "version": "1.0"
+}

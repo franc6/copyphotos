@@ -1,0 +1,41 @@
+# Weekly update PRs for third-party code. Swift packages referenced from the
+# Xcode project (AMSMB2) aren't supported by Dependabot; see
+# workflows/update-xcode-packages.yml.
+#
+# cooldown: a release must be this many days old before it is proposed, so a
+# compromised or broken release has time to be noticed and pulled.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+    groups:
+      github-actions:
+        patterns: ["*"]
+
+  - package-ecosystem: gradle # dependencies, plugins, and the Gradle wrapper
+    directory: /android
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+    groups:
+      kotlin: # the Kotlin and Compose compiler plugins must move together
+        patterns: ["org.jetbrains.kotlin*"]
+      androidx:
+        patterns: ["androidx.*"]
+      other:
+        patterns: ["*"]
+
+  - package-ecosystem: bundler # fastlane, used by the release workflow
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+    groups:
+      fastlane:
+        patterns: ["*"]
