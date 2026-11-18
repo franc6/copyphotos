@@ -28,7 +28,7 @@ jobs:
       run:
         working-directory: ios/CopyCore
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Show toolchain
         run: xcodebuild -version && swift --version
       - name: swift test
@@ -41,10 +41,10 @@ jobs:
       run:
         working-directory: ios
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Cache SwiftPM packages
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ios/.spm
           key: spm-${{ runner.os }}-${{ hashFiles('ios/**/Package.resolved', 'ios/**/project.pbxproj') }}
@@ -64,7 +64,7 @@ jobs:
 
       - name: Upload build log
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ios-build-log
           path: ios/xcodebuild.log
